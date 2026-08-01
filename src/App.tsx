@@ -197,7 +197,7 @@ export default function App({ pages = defaultPages }: AppProps) {
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="font-serif text-sm font-bold text-white">Direct Admissions Desk</span>
               </div>
-              <button onClick={() => setIsWaOpen(false)} className="text-white/60 hover:text-white">
+              <button onClick={() => setIsWaOpen(false)} aria-label="Close WhatsApp panel" className="text-white/60 hover:text-white">
                 <X className="w-[18px] h-[18px]" />
               </button>
             </div>
@@ -255,6 +255,7 @@ export default function App({ pages = defaultPages }: AppProps) {
                 </div>
                 <button
                   onClick={() => setActiveDetailedProgram(null)}
+                  aria-label="Close program details"
                   className="text-ink/50 hover:text-heritage-burgundy hover:bg-heritage-maroon/10 p-2 rounded-full transition-all"
                 >
                   <X className="w-6 h-6" />
