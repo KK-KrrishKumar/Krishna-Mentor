@@ -3,9 +3,6 @@
 A static marketing site for Krishna Mentor (academic mentorship & admissions
 consulting, Gurugram). Built with React, Vite, and Tailwind CSS.
 
-No backend, no database, no API keys required — it's just static HTML/CSS/JS
-once built, so it can be hosted anywhere for free.
-
 ## Run locally
 
 **Prerequisites:** Node.js (18+)
