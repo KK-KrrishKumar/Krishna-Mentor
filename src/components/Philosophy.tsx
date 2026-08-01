@@ -272,9 +272,9 @@ export default function Philosophy() {
           <p className="font-sans text-xs font-bold uppercase tracking-widest text-heritage-maroon mb-2">
             Our Core Values
           </p>
-          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-heritage-burgundy mb-8">
+          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-heritage-burgundy mb-8">
             K.R.I.S.H.N.A
-          </h3>
+          </h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
             {krishnaValues.map((value, idx) => (
               <Reveal key={value.letter} delayMs={idx * 60}>
