@@ -152,6 +152,8 @@ export default function Navbar({ onBookCounseling, topOffset = 0 }: NavbarProps)
         <div className="flex items-center gap-3 lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
             className="text-cream hover:text-sunlight-gold transition-colors focus:outline-none"
           >
             {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
