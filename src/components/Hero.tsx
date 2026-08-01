@@ -22,11 +22,11 @@ export default function Hero({ onStartJourney, onExplorePrograms }: HeroProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
         {/* Left Aligned Content */}
         <div className="lg:col-span-7 flex flex-col items-start gap-8 text-left animate-fade-in-up">
-          <div className="relative inline-flex items-center gap-2.5 bg-white/40 backdrop-blur-md border border-white/60 rounded-full px-6 py-2.5 shadow-[0_8px_24px_rgba(122,27,36,0.15),inset_0_1px_1px_rgba(255,255,255,0.9)]">
-            <Sparkles className="w-4 h-4 text-antique-gold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]" />
+          <div className="relative z-20 inline-flex items-center gap-2.5 bg-white border-2 border-antique-gold rounded-full px-6 py-2.5 shadow-[0_8px_24px_rgba(122,27,36,0.25),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <Sparkles className="w-4 h-4 text-antique-gold shrink-0" />
             <span
-              className="font-serif text-sm sm:text-base font-bold uppercase tracking-[0.15em] bg-clip-text text-transparent bg-gradient-to-r from-heritage-burgundy via-heritage-maroon to-antique-gold drop-shadow-sm"
-              style={{ textShadow: "0 1px 0 rgba(255,255,255,0.5)" }}
+              className="font-serif text-base sm:text-lg font-black uppercase tracking-[0.15em] text-[#7A1B24]"
+              style={{ WebkitTextStroke: "0.4px #7A1B24" }}
             >
               Career And University Admission Advisory
             </span>
