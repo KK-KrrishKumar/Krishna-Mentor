@@ -105,7 +105,11 @@ export default function Hero({ onStartJourney, onExplorePrograms }: HeroProps) {
               writing a line across the page, rather than a pen just bobbing in place. */}
           <div className="relative z-20 animate-feather-sweep">
             <picture>
-              <source srcSet="/peacock-feather-hero.webp" type="image/webp" />
+              <source
+                srcSet="/peacock-feather-hero-400w.webp 400w, /peacock-feather-hero.webp 640w"
+                sizes="(min-width: 1024px) 290px, (min-width: 640px) 250px, 200px"
+                type="image/webp"
+              />
               <img
                 src="/peacock-feather-hero.png"
                 alt="Curved peacock feather illustration"
@@ -123,7 +127,11 @@ export default function Hero({ onStartJourney, onExplorePrograms }: HeroProps) {
               visibly meets the page instead of floating above it */}
           <div className="relative z-10 -mt-10 sm:-mt-14 lg:-mt-16">
             <picture>
-              <source srcSet="/hero-open-book-cropped.webp" type="image/webp" />
+              <source
+                srcSet="/hero-open-book-cropped-560w.webp 560w, /hero-open-book-cropped.webp 900w"
+                sizes="(min-width: 1024px) 440px, (min-width: 640px) 360px, 280px"
+                type="image/webp"
+              />
               <img
                 src="/hero-open-book-cropped.png"
                 alt="Open journal page"
