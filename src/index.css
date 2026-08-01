@@ -1,0 +1,439 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Warm academic palette — maroon, peach, cream/white. No dark/cosmic tones. */
+  --color-heritage-burgundy: #4A0E14;
+  --color-heritage-maroon: #7A1B24;
+  --color-heritage-crimson: #9C2A32;
+
+  --color-cosmic-midnight: #3A241C;
+  --color-cosmic-teal: #E29A6C;
+
+  --color-spiritual-white: #FFFFFF;
+  --color-spiritual-cream: #FAF3E8;
+  --color-warm-alabaster: #F3C6A5;
+
+  --color-antique-gold: #B07C2C;
+  --color-sunlight-gold: #C99544;
+
+  --color-ink: #3A241C;
+  --color-peach: #F3C6A5;
+  --color-peach-soft: #FBE3D1;
+  --color-peach-deep: #E29A6C;
+  --color-cream: #FFFBF5;
+  --color-parchment: #FAF3E8;
+
+  /* Custom animations */
+  --animate-float-feather: float-feather 8s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-drift-slow: drift-slow 14s ease-in-out infinite;
+  --animate-drift-slow-reverse: drift-slow-reverse 16s ease-in-out infinite;
+  --animate-spin-3d-slow: spin-3d-slow 18s linear infinite;
+  --animate-feather-bob: feather-bob 7s ease-in-out infinite;
+  --animate-feather-sway: feather-sway 5.5s ease-in-out infinite;
+  --animate-feather-swirl: feather-swirl 11s ease-in-out infinite;
+  --animate-feather-drift-wind: feather-drift-wind 9s ease-in-out infinite;
+  --animate-marquee: marquee-scroll 32s linear infinite;
+  --animate-flute-glow: flute-glow-pulse 3.5s ease-in-out infinite;
+  --animate-note-float: note-float 6s ease-in-out infinite;
+  --animate-pen-write: pen-write 4.5s ease-in-out infinite;
+  --animate-feather-sweep: feather-sweep 6.5s ease-in-out infinite;
+  --animate-watch-hour: watch-hand-spin 12s linear infinite;
+  --animate-watch-minute: watch-hand-spin 5s linear infinite;
+  --animate-watch-second: watch-second-tick 60s steps(60) infinite;
+  --animate-nib-scribble: nib-scribble 3.2s ease-in-out infinite;
+  --animate-step-rise: step-rise 0.7s ease-out forwards;
+}
+
+@keyframes float-feather {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drift-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.08); }
+}
+
+@keyframes drift-slow-reverse {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 25px) scale(1.1); }
+}
+
+@keyframes spin-3d-slow {
+  from { transform: rotateY(0deg) rotateX(8deg); }
+  to { transform: rotateY(360deg) rotateX(8deg); }
+}
+
+/* Natural drifting motion for the peacock feather — an outer slow bob + drift... */
+@keyframes feather-bob {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(6px, -18px); }
+  50%  { transform: translate(-4px, -6px); }
+  75%  { transform: translate(-10px, -22px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* ...combined with an inner gentle rotational wobble, like air currents tilting a real feather */
+@keyframes feather-sway {
+  0%   { transform: rotate(-4deg) rotateY(0deg); }
+  30%  { transform: rotate(3deg) rotateY(8deg); }
+  60%  { transform: rotate(-2deg) rotateY(-6deg); }
+  100% { transform: rotate(-4deg) rotateY(0deg); }
+}
+
+/* Continuous horizontal scroll for the testimonials marquee; paused on hover in the component */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* A slow, uneven rotation — like a feather turning as it's caught by shifting wind,
+   rather than spinning in a perfect mechanical circle */
+@keyframes feather-swirl {
+  0%   { transform: rotate(-6deg); }
+  20%  { transform: rotate(10deg); }
+  40%  { transform: rotate(-3deg); }
+  60%  { transform: rotate(14deg); }
+  80%  { transform: rotate(-8deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+/* Wide, lazy horizontal + vertical drift, as if a breeze is carrying the feather sideways */
+@keyframes feather-drift-wind {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(-18px, -14px); }
+  50%  { transform: translate(10px, -30px); }
+  75%  { transform: translate(20px, -8px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* Gentle pulsing glow behind the flute, suggesting Krishna's presence without literal animation */
+@keyframes flute-glow-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.65; transform: scale(1.08); }
+}
+
+/* Musical notes drifting up and fading, as if carried from the flute */
+@keyframes note-float {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  15%  { opacity: 0.8; }
+  100% { transform: translateY(-90px) translateX(14px) rotate(18deg); opacity: 0; }
+}
+
+/* A gentle back-and-forth rotation around the nib tip, as if the quill is actively
+   writing — small, uneven strokes rather than a uniform swing, so it reads as a
+   hand-driven motion rather than a mechanical jump. Pivot point is set via
+   transform-origin on the element (the nib tip). */
+@keyframes pen-write {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  20%  { transform: translate(-2px, 1px) rotate(-4deg); }
+  40%  { transform: translate(1px, -1px) rotate(2deg); }
+  60%  { transform: translate(-1px, 1px) rotate(-3deg); }
+  80%  { transform: translate(2px, -1px) rotate(3deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+/* Carries the quill wrapper across the width of the book and back — combined with the
+   pen-write wobble on the image itself, this is what makes the nib actually travel like a
+   hand writing a line, instead of just rocking in place. Uses translateX so it never
+   affects layout — the book below stays exactly where it was.
+   NOTE: the range is intentionally NOT symmetric. The nib sits well left-of-center within
+   the feather image (transform-origin: 13% 95%), so a symmetric range would push the nib
+   off the book's left edge at one end and never reach the right page at the other. This
+   range is shifted right to compensate, so the nib travels from inside the left page to
+   inside the right page. */
+@keyframes feather-sweep {
+  0%   { transform: translateX(-20px); }
+  45%  { transform: translateX(65px); }
+  50%  { transform: translateX(65px); }
+  95%  { transform: translateX(-20px); }
+  100% { transform: translateX(-20px); }
+}
+
+/* Slight, uneven sway for the tree canopy — pivots from the base (transform-origin set on
+   the element) so it reads as a breeze moving the whole tree, not just the top. */
+@keyframes tree-sway {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(0.6deg); }
+  50%  { transform: rotate(-0.4deg); }
+  75%  { transform: rotate(0.3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Three slightly different leaf-fall paths (drift + rotate + fade) so multiple leaves
+   don't look like they're on the same clock. Each one loops. */
+@keyframes leaf-fall-1 {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.85; }
+  85%  { opacity: 0.75; }
+  100% { transform: translate(-16px, 280px) rotate(200deg); opacity: 0; }
+}
+@keyframes leaf-fall-2 {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.8; }
+  85%  { opacity: 0.7; }
+  100% { transform: translate(20px, 300px) rotate(-220deg); opacity: 0; }
+}
+@keyframes leaf-fall-3 {
+  0%   { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+  8%   { opacity: 0.75; }
+  85%  { opacity: 0.65; }
+  100% { transform: translate(-12px, 260px) rotate(160deg); opacity: 0; }
+}
+
+.animate-tree-sway { animation: tree-sway 6s ease-in-out infinite; }
+.animate-leaf-fall-1 { animation: leaf-fall-1 5s ease-in infinite; }
+.animate-leaf-fall-2 { animation: leaf-fall-2 6.5s ease-in infinite; }
+.animate-leaf-fall-3 { animation: leaf-fall-3 5.8s ease-in infinite; }
+
+/* Analog watch hands for the Tuition page "How It Works" flourish — hour and
+   minute hands sweep smoothly (transform-origin set on the element, at the
+   pivot/base of each hand), the second hand ticks in discrete steps like a
+   real seconds hand rather than gliding. */
+@keyframes watch-hand-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes watch-second-tick {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-watch-hour { animation: watch-hand-spin 12s linear infinite; transform-origin: center; }
+.animate-watch-minute { animation: watch-hand-spin 5s linear infinite; transform-origin: center; }
+.animate-watch-second { animation: watch-second-tick 60s steps(60) infinite; transform-origin: center; }
+
+/* Small nib-and-underline scribble used beside the "chapter-wise tests" step —
+   the nib jitters like it's actively writing while a line draws in beneath it. */
+@keyframes nib-scribble {
+  0%, 100% { transform: translateX(0) rotate(-3deg); }
+  25% { transform: translateX(3px) rotate(2deg); }
+  50% { transform: translateX(-2px) rotate(-4deg); }
+  75% { transform: translateX(2px) rotate(3deg); }
+}
+.animate-nib-scribble { animation: nib-scribble 3.2s ease-in-out infinite; transform-origin: 15% 90%; }
+
+/* Underline that draws itself in beneath the scribbling nib, then fades and resets. */
+@keyframes underline-draw {
+  0%   { stroke-dashoffset: 20; opacity: 0; }
+  15%  { opacity: 1; }
+  55%  { stroke-dashoffset: 0; opacity: 1; }
+  80%  { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 20; opacity: 0; }
+}
+.animate-underline-draw { animation: underline-draw 3.2s ease-in-out infinite; }
+
+/* Steps fade/rise into place, staggered via inline animation-delay per card. */
+@keyframes step-rise {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-step-rise { animation: step-rise 0.7s ease-out forwards; }
+
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth in-page anchor scrolling that accounts for the fixed navbar height */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFBF5;
+}
+
+/* Respect people who've asked their OS/browser to reduce motion — all the
+   drifting/floating/leaf/tilt animations calm down to a simple fade instead
+   of being forcibly disabled (which can make things feel broken). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Clear, on-brand keyboard focus ring — visible only for keyboard navigation
+   so mouse/touch users don't see a ring on every click. */
+:focus-visible {
+  outline: 2px solid #C99544;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* A little more breathing room for the very small uppercase labels used
+   throughout (badges, stat captions) so they stay legible at small sizes. */
+.text-\[10px\], .text-\[11px\] {
+  letter-spacing: 0.04em;
+}
+
+/* Custom CSS Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF3E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C08A34;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9C2A32;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism Styles — tuned for light backgrounds */
+.glass-card {
+  background: rgba(255, 251, 245, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(122, 27, 36, 0.12);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(122, 27, 36, 0.1);
+}
+
+/* Flute Divider Glowing Hover */
+.flute-glow {
+  filter: drop-shadow(0 0 4px rgba(176, 124, 44, 0.4));
+  transition: filter 0.3s ease;
+}
+.flute-glow:hover {
+  filter: drop-shadow(0 0 12px rgba(176, 124, 44, 0.7));
+}
+
+/* ---------------------------------------------------------------------- */
+/* Premium micro-interactions                                             */
+/* ---------------------------------------------------------------------- */
+
+/* Whole-page entrance fade so the very first paint feels intentional
+   rather than a hard pop-in. Runs once on mount. */
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+#root {
+  animation: page-fade-in 0.5s ease-out both;
+}
+
+/* A slow-sweeping light sheen for primary CTA buttons — layer this class
+   alongside existing button styles (e.g. className="btn-shine ...") to add
+   a subtle moving highlight that reads as "premium" without being gaudy. */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 40%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0.35) 60%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+.btn-shine:hover::after {
+  transform: translateX(120%);
+  transition: transform 0.9s ease;
+}
+.btn-shine:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -8px rgba(122, 27, 36, 0.45);
+}
+.btn-shine:active {
+  transform: translateY(0);
+}
+
+/* Consistent, elevated hover treatment for card-style surfaces (program
+   cards, testimonial cards, blog cards, etc). Add className="card-lift". */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -16px rgba(74, 14, 20, 0.28);
+  border-color: rgba(176, 124, 44, 0.35);
+}
+
+/* Elegant gold underline-on-hover for inline text links, drawn left to
+   right rather than an instant show/hide. Add className="link-underline". */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Soft, staggered-friendly focus/hover state for icon buttons (social,
+   nav, chatbot launcher) — a gentle scale rather than a jarring jump. */
+.icon-pop {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+}
+.icon-pop:hover {
+  transform: scale(1.12);
+  filter: brightness(1.08);
+}
+.icon-pop:active {
+  transform: scale(0.96);
+}

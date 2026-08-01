@@ -1,0 +1,47 @@
+# Krishna Mentor — Apache config for shared hosting (e.g. GoDaddy).
+#
+# The site is a single-page app using clean URLs (yoursite.com/courses,
+# not yoursite.com/#/courses). That means the server needs to serve
+# index.html for ANY path so React Router can take over client-side —
+# otherwise a visitor who reloads /courses or clicks a shared /blog/... link
+# directly gets a 404 from Apache before React ever loads.
+#
+# If you deploy to Netlify, Vercel, or Cloudflare Pages instead of Apache
+# hosting, this file is ignored — public/_redirects (Netlify/Cloudflare)
+# already covers the same fallback for those platforms.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Don't rewrite requests for files or directories that actually exist
+  # (JS/CSS/images/etc. should be served as-is).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else falls back to index.html so React Router can render
+  # the right page client-side.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# --- Performance ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- Basic security headers ---
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
