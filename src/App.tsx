@@ -2,7 +2,6 @@ import React, { useState, Suspense, lazy, ComponentType } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Chatbot from "./components/Chatbot";
-import CounselingModal from "./components/CounselingModal";
 import Footer from "./components/Footer";
 import ConsentPopup, { NOTICE_STRIP_HEIGHT } from "./components/ConsentPopup";
 import ScrollManager from "./components/ScrollManager";
@@ -10,6 +9,11 @@ import HomePage from "./pages/HomePage";
 import { ServiceProgram } from "./types";
 import { trackEvent } from "./lib/analytics";
 import { PhoneCall, Sparkles, X, Info } from "lucide-react";
+
+// Lazy: pulls in framer-motion, which the homepage itself never needs at
+// first paint — the modal is only rendered after the user clicks a "Book
+// Free Counseling" button, so there's no reason to ship it in the main chunk.
+const CounselingModal = lazy(() => import("./components/CounselingModal"));
 
 // Everything except the homepage is lazy-loaded: most visitors land on "/"
 // first, so there's no reason to make them download the Courses, Blog,
@@ -228,11 +232,13 @@ export default function App({ pages = defaultPages }: AppProps) {
       <Chatbot />
 
       {/* Counseling Booking Modal */}
-      <CounselingModal
-        isOpen={isCounselingOpen}
-        onClose={() => setIsCounselingOpen(false)}
-        selectedProgramName={selectedProgramName}
-      />
+      <Suspense fallback={null}>
+        <CounselingModal
+          isOpen={isCounselingOpen}
+          onClose={() => setIsCounselingOpen(false)}
+          selectedProgramName={selectedProgramName}
+        />
+      </Suspense>
 
       {/* Service Program Details Drawer overlay */}
       {activeDetailedProgram && (
