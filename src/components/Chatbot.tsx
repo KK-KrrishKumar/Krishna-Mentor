@@ -230,7 +230,11 @@ export default function Chatbot() {
         ) : (
           <>
             <picture>
-              <source srcSet="/chatbot-krishna-icon.webp" type="image/webp" />
+              <source
+                srcSet="/chatbot-krishna-icon-160w.webp 160w, /chatbot-krishna-icon.webp 320w"
+                sizes="80px"
+                type="image/webp"
+              />
               <img
                 src="/chatbot-krishna-icon.png"
                 alt="Krishna Mentor Assistant"
@@ -259,7 +263,11 @@ export default function Chatbot() {
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-gradient-to-r from-antique-gold to-sunlight-gold flex items-center justify-center shadow-inner">
                 <picture>
-                  <source srcSet="/chatbot-krishna-icon.webp" type="image/webp" />
+                  <source
+                    srcSet="/chatbot-krishna-icon-160w.webp 160w, /chatbot-krishna-icon.webp 320w"
+                    sizes="28px"
+                    type="image/webp"
+                  />
                   <img
                     src="/chatbot-krishna-icon.png"
                     alt="Krishna Mentor Assistant"
