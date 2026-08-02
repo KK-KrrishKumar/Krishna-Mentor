@@ -255,6 +255,11 @@
   opacity: 1;
   transform: translateY(0);
 }
+/* If JS never runs at all (script blocked/failed), don't leave content hidden. */
+.no-js .reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
 
 /* Smooth in-page anchor scrolling that accounts for the fixed navbar height */
 html {
