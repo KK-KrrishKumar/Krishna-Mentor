@@ -442,3 +442,97 @@ body {
 .icon-pop:active {
   transform: scale(0.96);
 }
+
+/*
+ * Fallback for browsers that don't support color-mix() (Chrome < 111,
+ * Safari < 16.4, Firefox < 128) — Tailwind v4 compiles every opacity-
+ * modified color utility (e.g. bg-heritage-burgundy/70) using color-mix().
+ * On unsupported browsers those rules are silently ignored, leaving
+ * elements with NO background/text/border color at all — this is what
+ * caused the site to look washed-out/blank on an older locked-down PC.
+ *
+ * This block only activates via @supports when color-mix() is missing,
+ * so modern browsers are completely unaffected.
+ */
+@supports not (color: color-mix(in srgb, red, red)) {
+  [class~="bg-antique-gold/10"] { background-color: rgba(176,124,44,0.1) !important; }
+  [class~="bg-antique-gold/15"] { background-color: rgba(176,124,44,0.15) !important; }
+  [class~="bg-antique-gold/20"] { background-color: rgba(176,124,44,0.2) !important; }
+  [class~="bg-cream/10"] { background-color: rgba(255,251,245,0.1) !important; }
+  [class~="bg-cream/15"] { background-color: rgba(255,251,245,0.15) !important; }
+  [class~="bg-cream/25"] { background-color: rgba(255,251,245,0.25) !important; }
+  [class~="bg-cream/90"] { background-color: rgba(255,251,245,0.9) !important; }
+  [class~="bg-cream/95"] { background-color: rgba(255,251,245,0.95) !important; }
+  [class~="bg-heritage-burgundy/5"] { background-color: rgba(74,14,20,0.05) !important; }
+  [class~="bg-heritage-burgundy/50"] { background-color: rgba(74,14,20,0.5) !important; }
+  [class~="bg-heritage-burgundy/70"] { background-color: rgba(74,14,20,0.7) !important; }
+  [class~="bg-heritage-burgundy/80"] { background-color: rgba(74,14,20,0.8) !important; }
+  [class~="bg-heritage-crimson/10"] { background-color: rgba(156,42,50,0.1) !important; }
+  [class~="bg-heritage-maroon/10"] { background-color: rgba(122,27,36,0.1) !important; }
+  [class~="bg-heritage-maroon/15"] { background-color: rgba(122,27,36,0.15) !important; }
+  [class~="bg-heritage-maroon/20"] { background-color: rgba(122,27,36,0.2) !important; }
+  [class~="bg-heritage-maroon/30"] { background-color: rgba(122,27,36,0.3) !important; }
+  [class~="bg-heritage-maroon/40"] { background-color: rgba(122,27,36,0.4) !important; }
+  [class~="bg-heritage-maroon/5"] { background-color: rgba(122,27,36,0.05) !important; }
+  [class~="bg-heritage-maroon/50"] { background-color: rgba(122,27,36,0.5) !important; }
+  [class~="bg-parchment/70"] { background-color: rgba(250,243,232,0.7) !important; }
+  [class~="bg-peach/20"] { background-color: rgba(243,198,165,0.2) !important; }
+  [class~="bg-peach/25"] { background-color: rgba(243,198,165,0.25) !important; }
+  [class~="bg-peach/30"] { background-color: rgba(243,198,165,0.3) !important; }
+  [class~="bg-peach/40"] { background-color: rgba(243,198,165,0.4) !important; }
+  [class~="bg-peach/50"] { background-color: rgba(243,198,165,0.5) !important; }
+  [class~="bg-peach/90"] { background-color: rgba(243,198,165,0.9) !important; }
+  [class~="bg-sunlight-gold/40"] { background-color: rgba(201,149,68,0.4) !important; }
+  [class~="border-antique-gold/15"] { border-color: rgba(176,124,44,0.15) !important; }
+  [class~="border-antique-gold/20"] { border-color: rgba(176,124,44,0.2) !important; }
+  [class~="border-antique-gold/25"] { border-color: rgba(176,124,44,0.25) !important; }
+  [class~="border-antique-gold/30"] { border-color: rgba(176,124,44,0.3) !important; }
+  [class~="border-antique-gold/40"] { border-color: rgba(176,124,44,0.4) !important; }
+  [class~="border-antique-gold/50"] { border-color: rgba(176,124,44,0.5) !important; }
+  [class~="border-antique-gold/60"] { border-color: rgba(176,124,44,0.6) !important; }
+  [class~="border-cream/15"] { border-color: rgba(255,251,245,0.15) !important; }
+  [class~="border-cream/20"] { border-color: rgba(255,251,245,0.2) !important; }
+  [class~="border-cream/25"] { border-color: rgba(255,251,245,0.25) !important; }
+  [class~="border-cream/40"] { border-color: rgba(255,251,245,0.4) !important; }
+  [class~="border-heritage-crimson/25"] { border-color: rgba(156,42,50,0.25) !important; }
+  [class~="border-heritage-maroon/10"] { border-color: rgba(122,27,36,0.1) !important; }
+  [class~="border-heritage-maroon/15"] { border-color: rgba(122,27,36,0.15) !important; }
+  [class~="border-heritage-maroon/20"] { border-color: rgba(122,27,36,0.2) !important; }
+  [class~="border-heritage-maroon/25"] { border-color: rgba(122,27,36,0.25) !important; }
+  [class~="border-heritage-maroon/40"] { border-color: rgba(122,27,36,0.4) !important; }
+  [class~="border-sunlight-gold/30"] { border-color: rgba(201,149,68,0.3) !important; }
+  [class~="border-sunlight-gold/40"] { border-color: rgba(201,149,68,0.4) !important; }
+  [class~="border-sunlight-gold/50"] { border-color: rgba(201,149,68,0.5) !important; }
+  [class~="border-sunlight-gold/60"] { border-color: rgba(201,149,68,0.6) !important; }
+  [class~="text-antique-gold/60"] { color: rgba(176,124,44,0.6) !important; }
+  [class~="text-antique-gold/80"] { color: rgba(176,124,44,0.8) !important; }
+  [class~="text-cream/50"] { color: rgba(255,251,245,0.5) !important; }
+  [class~="text-cream/60"] { color: rgba(255,251,245,0.6) !important; }
+  [class~="text-cream/65"] { color: rgba(255,251,245,0.65) !important; }
+  [class~="text-cream/70"] { color: rgba(255,251,245,0.7) !important; }
+  [class~="text-cream/75"] { color: rgba(255,251,245,0.75) !important; }
+  [class~="text-cream/80"] { color: rgba(255,251,245,0.8) !important; }
+  [class~="text-cream/85"] { color: rgba(255,251,245,0.85) !important; }
+  [class~="text-heritage-burgundy/50"] { color: rgba(74,14,20,0.5) !important; }
+  [class~="text-heritage-crimson/70"] { color: rgba(156,42,50,0.7) !important; }
+  [class~="text-heritage-crimson/80"] { color: rgba(156,42,50,0.8) !important; }
+  [class~="text-heritage-maroon/40"] { color: rgba(122,27,36,0.4) !important; }
+  [class~="text-heritage-maroon/50"] { color: rgba(122,27,36,0.5) !important; }
+  [class~="text-heritage-maroon/60"] { color: rgba(122,27,36,0.6) !important; }
+  [class~="text-heritage-maroon/70"] { color: rgba(122,27,36,0.7) !important; }
+  [class~="text-heritage-maroon/80"] { color: rgba(122,27,36,0.8) !important; }
+  [class~="text-ink/30"] { color: rgba(58,36,28,0.3) !important; }
+  [class~="text-ink/40"] { color: rgba(58,36,28,0.4) !important; }
+  [class~="text-ink/45"] { color: rgba(58,36,28,0.45) !important; }
+  [class~="text-ink/50"] { color: rgba(58,36,28,0.5) !important; }
+  [class~="text-ink/55"] { color: rgba(58,36,28,0.55) !important; }
+  [class~="text-ink/60"] { color: rgba(58,36,28,0.6) !important; }
+  [class~="text-ink/65"] { color: rgba(58,36,28,0.65) !important; }
+  [class~="text-ink/70"] { color: rgba(58,36,28,0.7) !important; }
+  [class~="text-ink/75"] { color: rgba(58,36,28,0.75) !important; }
+  [class~="text-ink/80"] { color: rgba(58,36,28,0.8) !important; }
+  [class~="text-ink/85"] { color: rgba(58,36,28,0.85) !important; }
+  [class~="text-peach-soft/90"] { color: rgba(251,227,209,0.9) !important; }
+  [class~="text-sunlight-gold/40"] { color: rgba(201,149,68,0.4) !important; }
+  [class~="text-sunlight-gold/90"] { color: rgba(201,149,68,0.9) !important; }
+}
