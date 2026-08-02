@@ -18,18 +18,32 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Reveal
     const el = ref.current;
     if (!el) return;
 
+    // Safety net: if IntersectionObserver isn't supported, or its callback
+    // never fires for any reason (old browser, unusual zoom/layout, etc.),
+    // force content visible after a short delay rather than hiding it forever.
+    const fallback = window.setTimeout(() => setIsVisible(true), 1200);
+
+    if (typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return () => window.clearTimeout(fallback);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
+          window.clearTimeout(fallback);
         }
       },
       { threshold: 0.15 }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
 
   return (
