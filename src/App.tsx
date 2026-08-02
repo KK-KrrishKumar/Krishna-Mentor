@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Chatbot from "./components/Chatbot";
 import Footer from "./components/Footer";
+import ErrorBoundary from "./components/ErrorBoundary";
 import ConsentPopup, { NOTICE_STRIP_HEIGHT } from "./components/ConsentPopup";
 import ScrollManager from "./components/ScrollManager";
 import HomePage from "./pages/HomePage";
@@ -126,41 +127,50 @@ export default function App({ pages = defaultPages }: AppProps) {
   return (
     <div className="min-h-screen bg-cream text-ink selection:bg-antique-gold selection:text-cream overflow-x-hidden font-sans">
       {/* Sticky Header Navigation */}
-      <Navbar onBookCounseling={() => triggerCounseling()} topOffset={isNoticeVisible ? NOTICE_STRIP_HEIGHT : 0} />
+      <ErrorBoundary name="Navbar">
+        <Navbar onBookCounseling={() => triggerCounseling()} topOffset={isNoticeVisible ? NOTICE_STRIP_HEIGHT : 0} />
+      </ErrorBoundary>
 
       {/* Short, ignorable strip above the navbar linking to Disclaimer + Privacy Policy */}
-      <ConsentPopup onVisibilityChange={setIsNoticeVisible} />
+      <ErrorBoundary name="ConsentPopup">
+        <ConsentPopup onVisibilityChange={setIsNoticeVisible} />
+      </ErrorBoundary>
 
       {/* Keeps in-page anchor scrolling and scroll-to-top working across routes */}
       <ScrollManager />
 
       {/* Routed Page Content */}
       <main className="relative">
-        <Suspense fallback={<div className="min-h-[60vh]" />}>
-          <Routes>
-            <Route
-              path="/"
-              element={<HomePage onBookCounseling={triggerCounseling} onSelectProgram={triggerProgramDetails} />}
-            />
-            <Route path="/courses" element={<CoursesPage onBookCounseling={triggerCounseling} />} />
-            <Route path="/certificates" element={<CertificatesPage onBookCounseling={triggerCounseling} />} />
-            <Route path="/blog" element={<BlogPage onBookCounseling={triggerCounseling} />} />
-            <Route path="/blog/:slug" element={<BlogPostPage onBookCounseling={triggerCounseling} />} />
-            <Route path="/invite-us" element={<InviteUsPage onBookCounseling={triggerCounseling} />} />
-            <Route path="/tuition" element={<TuitionPage onBookCounseling={triggerCounseling} />} />
-            <Route path="/promote" element={<PromoQrPage />} />
-            <Route path="/disclaimer" element={<DisclaimerPage />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          </Routes>
-        </Suspense>
+        <ErrorBoundary name="RoutedPage">
+          <Suspense fallback={<div className="min-h-[60vh]" />}>
+            <Routes>
+              <Route
+                path="/"
+                element={<HomePage onBookCounseling={triggerCounseling} onSelectProgram={triggerProgramDetails} />}
+              />
+              <Route path="/courses" element={<CoursesPage onBookCounseling={triggerCounseling} />} />
+              <Route path="/certificates" element={<CertificatesPage onBookCounseling={triggerCounseling} />} />
+              <Route path="/blog" element={<BlogPage onBookCounseling={triggerCounseling} />} />
+              <Route path="/blog/:slug" element={<BlogPostPage onBookCounseling={triggerCounseling} />} />
+              <Route path="/invite-us" element={<InviteUsPage onBookCounseling={triggerCounseling} />} />
+              <Route path="/tuition" element={<TuitionPage onBookCounseling={triggerCounseling} />} />
+              <Route path="/promote" element={<PromoQrPage />} />
+              <Route path="/disclaimer" element={<DisclaimerPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Footer Segment (includes lamp-toggled contact form + map) */}
-      <Footer />
+      <ErrorBoundary name="Footer">
+        <Footer />
+      </ErrorBoundary>
 
       {/* ================= FLOATING ELEMENTS ================= */}
 
       {/* WhatsApp + Maps Pinned Actions (Bottom Left) */}
+      <ErrorBoundary name="WhatsAppMapsWidget">
       <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3">
         {/* Google Maps quick-link, stacked above WhatsApp */}
         <a
@@ -227,9 +237,12 @@ export default function App({ pages = defaultPages }: AppProps) {
           </div>
         )}
       </div>
+      </ErrorBoundary>
 
       {/* Chatbot (Bottom Right) */}
-      <Chatbot />
+      <ErrorBoundary name="Chatbot">
+        <Chatbot />
+      </ErrorBoundary>
 
       {/* Counseling Booking Modal */}
       <Suspense fallback={null}>
