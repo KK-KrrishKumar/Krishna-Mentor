@@ -158,7 +158,7 @@ export default function CounselingModal({
               <button
                 onClick={onClose}
                 aria-label="Close"
-                className="text-cream/70 hover:text-cream hover:bg-white/10 p-2 rounded-full transition-colors shrink-0"
+                className="relative text-cream/70 hover:text-cream hover:bg-white/10 p-2 rounded-full transition-colors shrink-0 after:content-[''] after:absolute after:-inset-1.5"
               >
                 <X className="w-5 h-5" />
               </button>
