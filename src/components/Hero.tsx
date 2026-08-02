@@ -73,16 +73,16 @@ export default function Hero({ onStartJourney, onExplorePrograms }: HeroProps) {
           {/* Core Trust Indicators */}
           <div className="grid grid-cols-3 gap-2 sm:gap-6 pt-6 pb-2 px-3 sm:px-6 w-full max-w-md rounded-2xl bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_8px_30px_rgba(122,27,36,0.12),inset_0_1px_1px_rgba(255,255,255,0.8)]">
             <div className="min-w-0">
-              <p className="font-serif text-lg sm:text-2xl font-bold text-heritage-maroon truncate">Trusted</p>
-              <p className="text-[10px] sm:text-xs text-ink/50 uppercase tracking-wider font-sans truncate">By Families</p>
+              <p className="font-serif text-lg sm:text-2xl font-bold text-heritage-maroon">Trusted</p>
+              <p className="text-[10px] sm:text-xs text-ink/50 uppercase tracking-wide sm:tracking-wider font-sans leading-tight">By Families</p>
             </div>
             <div className="min-w-0">
-              <p className="font-serif text-lg sm:text-2xl font-bold text-heritage-maroon truncate">University</p>
-              <p className="text-[10px] sm:text-xs text-ink/50 uppercase tracking-wider font-sans truncate">Degree Programs</p>
+              <p className="font-serif text-lg sm:text-2xl font-bold text-heritage-maroon">University</p>
+              <p className="text-[10px] sm:text-xs text-ink/50 uppercase tracking-wide sm:tracking-wider font-sans leading-tight">Degree Programs</p>
             </div>
             <div className="min-w-0">
-              <p className="font-serif text-lg sm:text-2xl font-bold text-heritage-maroon truncate">Diverse</p>
-              <p className="text-[10px] sm:text-xs text-ink/50 uppercase tracking-wider font-sans truncate">Certificate Courses</p>
+              <p className="font-serif text-lg sm:text-2xl font-bold text-heritage-maroon">Diverse</p>
+              <p className="text-[10px] sm:text-xs text-ink/50 uppercase tracking-wide sm:tracking-wider font-sans leading-tight">Certificate Courses</p>
             </div>
           </div>
         </div>
