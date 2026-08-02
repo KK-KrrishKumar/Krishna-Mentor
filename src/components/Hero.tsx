@@ -25,8 +25,8 @@ export default function Hero({ onStartJourney, onExplorePrograms }: HeroProps) {
           <div className="relative z-20 inline-flex items-center gap-2.5 bg-white border-2 border-antique-gold rounded-full px-6 py-2.5 shadow-[0_8px_24px_rgba(122,27,36,0.25),inset_0_1px_1px_rgba(255,255,255,0.9)]">
             <Sparkles className="w-4 h-4 text-antique-gold shrink-0" />
             <span
-              className="font-serif text-base sm:text-lg font-black uppercase tracking-[0.15em] text-[#7A1B24]"
-              style={{ WebkitTextStroke: "0.4px #7A1B24" }}
+              className="font-serif text-lg sm:text-xl font-black uppercase tracking-[0.1em] text-[#7A1B24]"
+              style={{ WebkitTextStroke: "0.8px #7A1B24" }}
             >
               Career And University Admission Advisory
             </span>
