@@ -34,7 +34,7 @@ export const HOME_STRUCTURED_DATA = {
     addressCountry: "IN"
   },
   hasMap: "https://maps.app.goo.gl/cTgW7tMQE8NcWbpU7",
-  image: "https://www.krishnamentor.com/peacock-feather-hero.png",
+  image: "https://www.krishnamentor.com/logo-feather-quill.png",
   priceRange: "$$",
   areaServed: {
     "@type": "AdministrativeArea",
