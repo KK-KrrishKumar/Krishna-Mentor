@@ -297,7 +297,7 @@ export default function Chatbot() {
               <button
                 onClick={() => setIsOpen(false)}
                 aria-label="Close chat"
-                className="text-cream/70 hover:text-cream transition-colors"
+                className="relative text-cream/70 hover:text-cream transition-colors after:content-[''] after:absolute after:-inset-3"
               >
                 <X className="w-5 h-5" />
               </button>
