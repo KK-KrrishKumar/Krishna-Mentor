@@ -42,10 +42,10 @@ export const STRUCTURED_DATA = [
       "@type": "ListItem",
       position: t.id,
       item: {
-        "@type": "Event",
+        "@type": "Course",
         name: t.title,
         description: t.blurb,
-        organizer: { "@type": "EducationalOrganization", name: "Krishna Mentor", sameAs: "https://www.krishnamentor.com/" }
+        provider: { "@type": "EducationalOrganization", name: "Krishna Mentor", sameAs: "https://www.krishnamentor.com/" }
       }
     }))
   },
