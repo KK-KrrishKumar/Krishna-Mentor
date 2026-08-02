@@ -82,7 +82,11 @@ export default function Navbar({ onBookCounseling, topOffset = 0 }: NavbarProps)
         >
           <div className="relative w-20 md:w-28 h-full shrink-0">
             <picture>
-              <source srcSet="/logo-feather-quill-cropped.webp" type="image/webp" />
+              <source
+                srcSet="/logo-feather-quill-cropped-180w.webp 180w, /logo-feather-quill-cropped.webp 260w"
+                sizes="(min-width: 768px) 128px, 96px"
+                type="image/webp"
+              />
               <img
                 src="/logo-feather-quill-cropped.png"
                 alt="Krishna Mentor — feather quill logo"
@@ -154,7 +158,7 @@ export default function Navbar({ onBookCounseling, topOffset = 0 }: NavbarProps)
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
-            className="text-cream hover:text-sunlight-gold transition-colors focus:outline-none"
+            className="relative text-cream hover:text-sunlight-gold transition-colors focus:outline-none after:content-[''] after:absolute after:-inset-2.5"
           >
             {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
