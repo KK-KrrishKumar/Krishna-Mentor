@@ -186,8 +186,8 @@ export default function CounselingModal({
                     <div>
                       <h4 className="font-serif text-2xl font-bold text-heritage-burgundy">Request Sent!</h4>
                       <p className="font-sans text-sm text-ink/70 max-w-md mx-auto leading-relaxed mt-2">
-                        Your details have reached our admissions desk, and a confirmation is on its way
-                        to your inbox. We'll call or WhatsApp you shortly.
+                        Your details have reached our admissions desk.
+                        We'll call or WhatsApp you shortly.
                       </p>
                     </div>
                     <div className="pt-2 flex items-center justify-center gap-3">
