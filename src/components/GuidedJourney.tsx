@@ -31,7 +31,11 @@ export default function GuidedJourney() {
             />
 
             <picture>
-              <source srcSet="/flute-road-path.webp" type="image/webp" />
+              <source
+                srcSet="/flute-road-path-640w.webp 640w, /flute-road-path.webp 900w"
+                sizes="(min-width: 1024px) 448px, 90vw"
+                type="image/webp"
+              />
               <img
                 src="/flute-road-path.png"
                 alt="Krishna's flute opening into a winding road, symbolizing a guided path forward"
