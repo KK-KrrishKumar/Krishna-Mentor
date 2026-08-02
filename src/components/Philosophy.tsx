@@ -294,7 +294,7 @@ export default function Philosophy() {
                   />
 
                   <span
-                    className="relative block font-serif font-bold text-2xl sm:text-3xl mb-1 transition-transform duration-500 ease-out group-hover:scale-110"
+                    className="relative block font-serif font-black text-4xl sm:text-5xl mb-1 transition-transform duration-500 ease-out group-hover:scale-110"
                     style={{
                       background: `linear-gradient(160deg, ${value.from}, ${value.to})`,
                       WebkitBackgroundClip: "text",
@@ -303,7 +303,7 @@ export default function Philosophy() {
                   >
                     {value.letter}
                   </span>
-                  <span className="relative flex items-center justify-center min-h-[2rem] sm:min-h-[2.25rem] text-center font-sans text-[11px] sm:text-xs font-semibold text-ink/75 leading-tight transition-colors duration-500 group-hover:text-ink">
+                  <span className="relative flex items-center justify-center min-h-[2rem] sm:min-h-[2.25rem] text-center font-sans text-sm sm:text-base font-semibold text-ink/75 leading-tight transition-colors duration-500 group-hover:text-ink">
                     {value.word}
                   </span>
                 </div>
