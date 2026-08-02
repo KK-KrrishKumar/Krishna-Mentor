@@ -298,7 +298,7 @@ export default function CoursesPage({ onBookCounseling }: CoursesPageProps) {
                               <button
                                 key={cat.slug}
                                 onClick={() => setActiveSlug(cat.slug)}
-                                className={`relative flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-sans font-bold transition-colors ${
+                                className={`relative flex items-center gap-1.5 px-4 py-2.5 lg:px-4 lg:py-3 rounded-full text-xs font-sans font-bold transition-colors ${
                                   isActive ? "text-cream" : "text-heritage-maroon bg-white border border-heritage-maroon/10 hover:border-antique-gold/40"
                                 }`}
                               >
