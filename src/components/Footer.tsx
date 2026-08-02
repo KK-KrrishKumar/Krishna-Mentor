@@ -114,7 +114,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Krishna Mentor on Instagram"
-                className="w-9 h-9 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream/75 hover:text-cosmic-midnight hover:bg-gradient-to-br hover:from-antique-gold hover:to-sunlight-gold hover:border-antique-gold transition-all duration-300"
+                className="relative w-9 h-9 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream/75 hover:text-cosmic-midnight hover:bg-gradient-to-br hover:from-antique-gold hover:to-sunlight-gold hover:border-antique-gold transition-all duration-300 after:content-[''] after:absolute after:-inset-1.5"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -123,7 +123,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Krishna Mentor on LinkedIn"
-                className="w-9 h-9 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream/75 hover:text-cosmic-midnight hover:bg-gradient-to-br hover:from-antique-gold hover:to-sunlight-gold hover:border-antique-gold transition-all duration-300"
+                className="relative w-9 h-9 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream/75 hover:text-cosmic-midnight hover:bg-gradient-to-br hover:from-antique-gold hover:to-sunlight-gold hover:border-antique-gold transition-all duration-300 after:content-[''] after:absolute after:-inset-1.5"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -132,7 +132,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Krishna Mentor on YouTube"
-                className="w-9 h-9 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream/75 hover:text-cosmic-midnight hover:bg-gradient-to-br hover:from-antique-gold hover:to-sunlight-gold hover:border-antique-gold transition-all duration-300"
+                className="relative w-9 h-9 rounded-full bg-cream/10 border border-cream/20 flex items-center justify-center text-cream/75 hover:text-cosmic-midnight hover:bg-gradient-to-br hover:from-antique-gold hover:to-sunlight-gold hover:border-antique-gold transition-all duration-300 after:content-[''] after:absolute after:-inset-1.5"
               >
                 <Youtube className="w-4 h-4" />
               </a>
