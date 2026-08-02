@@ -21,7 +21,7 @@ export default function Hero({ onStartJourney, onExplorePrograms }: HeroProps) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
         {/* Left Aligned Content */}
-        <div className="lg:col-span-7 flex flex-col items-start gap-8 text-left animate-fade-in-up">
+        <div className="lg:col-span-7 flex flex-col items-start gap-8 text-left animate-hero-in">
           <div className="relative z-20 inline-flex items-center gap-2.5 bg-white border-2 border-antique-gold rounded-full px-6 py-2.5 shadow-[0_8px_24px_rgba(122,27,36,0.25),inset_0_1px_1px_rgba(255,255,255,0.9)]">
             <Sparkles className="w-4 h-4 text-antique-gold shrink-0" />
             <span
