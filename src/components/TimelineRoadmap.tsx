@@ -146,7 +146,7 @@ export default function TimelineRoadmap() {
             type="button"
             onClick={() => setActiveStep((activeStep - 1 + ROADMAP_STEPS.length) % ROADMAP_STEPS.length)}
             aria-label="Previous phase"
-            className="absolute left-1 sm:-left-5 lg:-left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-cream/90 shadow-md border border-heritage-maroon/10 text-heritage-maroon/60 hover:text-heritage-maroon hover:bg-cream transition-colors"
+            className="absolute left-1 sm:-left-5 lg:-left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-cream/90 shadow-md border border-heritage-maroon/10 text-heritage-maroon/60 hover:text-heritage-maroon hover:bg-cream transition-colors after:content-[''] after:absolute after:-inset-1"
           >
             <ChevronRight className="w-5 h-5 rotate-180" />
           </button>
@@ -156,7 +156,7 @@ export default function TimelineRoadmap() {
             type="button"
             onClick={() => setActiveStep((activeStep + 1) % ROADMAP_STEPS.length)}
             aria-label="Next phase"
-            className="absolute right-1 sm:-right-5 lg:-right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-cream/90 shadow-md border border-heritage-maroon/10 text-heritage-maroon/60 hover:text-heritage-maroon hover:bg-cream transition-colors"
+            className="absolute right-1 sm:-right-5 lg:-right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center bg-cream/90 shadow-md border border-heritage-maroon/10 text-heritage-maroon/60 hover:text-heritage-maroon hover:bg-cream transition-colors after:content-[''] after:absolute after:-inset-1"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
