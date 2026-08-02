@@ -31,6 +31,7 @@
   --animate-float-feather: float-feather 8s ease-in-out infinite;
   --animate-shimmer: shimmer 3s linear infinite;
   --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+  --animate-hero-in: hero-in 0.6s ease-out forwards;
   --animate-drift-slow: drift-slow 14s ease-in-out infinite;
   --animate-drift-slow-reverse: drift-slow-reverse 16s ease-in-out infinite;
   --animate-spin-3d-slow: spin-3d-slow 18s linear infinite;
@@ -62,6 +63,19 @@
 
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Same slide-up motion as fade-in-up, but never fully transparent. Chrome's
+   LCP algorithm excludes elements that are 100% transparent (opacity: 0) at
+   their first paint from being counted as the Largest Contentful Paint
+   candidate — which is exactly what was happening to the hero heading
+   (the page's actual LCP element) under mobile's throttled CPU, where the
+   fade hadn't progressed by the time LCP was measured. Starting at a low,
+   non-zero opacity keeps virtually the same visual entrance while letting
+   the heading be picked up immediately. */
+@keyframes hero-in {
+  from { opacity: 0.4; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
