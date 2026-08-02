@@ -37,13 +37,13 @@ export default function BlogPostPage({ onBookCounseling }: BlogPostPageProps) {
     dateModified: post.updated || post.date,
     wordCount,
     articleSection: post.category,
-    image: `${SITE_URL}/peacock-feather-hero.png`,
+    image: `${SITE_URL}/logo-feather-quill.png`,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${post.slug}` },
     author: { "@type": "Organization", name: "Krishna Mentor", url: SITE_URL },
     publisher: {
       "@type": "Organization",
       name: "Krishna Mentor",
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/peacock-feather-hero.png` }
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo-feather-quill.png` }
     }
   };
 
