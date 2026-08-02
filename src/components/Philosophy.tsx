@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, Suspense, lazy } from "react";
 import {
   BookOpen,
   GraduationCap,
@@ -17,7 +17,12 @@ import {
   Compass
 } from "lucide-react";
 import Reveal from "./Reveal";
-import MentorFlipBook, { type FlipBookPage } from "./MentorFlipBook";
+import type { FlipBookPage } from "./MentorFlipBook";
+
+// Lazy: MentorFlipBook pulls in framer-motion, which the rest of the homepage
+// never needs — splitting it into its own chunk keeps framer-motion out of
+// the main bundle and only fetches it for this one interactive section.
+const MentorFlipBook = lazy(() => import("./MentorFlipBook"));
 
 /** Wraps children with a subtle mouse-driven 3D tilt for a more dynamic, dimensional feel. */
 function TiltCard({ className, children }: { className?: string; children: React.ReactNode }) {
@@ -453,7 +458,11 @@ export default function Philosophy() {
             {/* Glassmorphic panel holding the artwork — kept light and transparent so the glow reads through */}
             <div className="relative w-full max-w-sm rounded-3xl bg-white/8 backdrop-blur-sm border border-white/40 shadow-[0_20px_50px_rgba(122,27,36,0.15)] p-6 overflow-hidden">
               <picture>
-                <source srcSet="/krishna-arjuna-silhouette.webp" type="image/webp" />
+                <source
+                  srcSet="/krishna-arjuna-silhouette-700w.webp 700w, /krishna-arjuna-silhouette.webp 800w"
+                  sizes="(min-width: 640px) 336px, 85vw"
+                  type="image/webp"
+                />
                 <img
                   src="/krishna-arjuna-silhouette.png"
                   alt="Krishna guiding Arjuna — the mentorship metaphor at the heart of Krishna Mentor"
@@ -550,7 +559,9 @@ export default function Philosophy() {
       {/* Meet Your Mentor — interactive flip-book profile */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-24">
         <Reveal>
-          <MentorFlipBook pages={mentorPages} />
+          <Suspense fallback={<div className="min-h-[420px] sm:min-h-[380px]" />}>
+            <MentorFlipBook pages={mentorPages} />
+          </Suspense>
         </Reveal>
       </div>
 
